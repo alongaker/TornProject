@@ -1,0 +1,11 @@
+---
+description: Keep all project work on main
+alwaysApply: true
+---
+
+The owner of this repository asked for this explicitly, and it still applies after a context reset:
+
+- Do all work on the `main` branch. Do not create a feature branch.
+- Commit and push to `origin/main` after each update so they can pull `main` and test.
+- Do not open pull requests.
+- Do not create walkthrough videos, screen recordings, or demo screenshots unless they ask for them.

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Torn Project</title>
+    <meta
+      name="description"
+      content="A private desk for tracking Torn City. Your API key stays in this browser."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif&family=Outfit:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="top">
+        <a class="mark" href="/">
+          <span class="mark-swatch" aria-hidden="true"></span>
+          Torn Project
+        </a>
+        <p class="top-note">Personal</p>
+      </header>
+
+      <main>
+        <section class="stage">
+          <div class="intro">
+            <h1>One desk for the city.</h1>
+            <p class="deck">
+              A private place to keep Torn in one view. Add your API key to
+              start. It stays in this browser and is not sent anywhere yet.
+            </p>
+          </div>
+
+          <form id="key-form" class="card" autocomplete="off" novalidate>
+            <label class="field-label" for="api-key">API key</label>
+            <div class="field-row">
+              <input
+                id="api-key"
+                name="api-key"
+                type="password"
+                inputmode="text"
+                autocomplete="off"
+                spellcheck="false"
+                autocapitalize="off"
+                placeholder="16-character key"
+                aria-describedby="key-help key-error"
+              />
+              <button
+                id="toggle-visibility"
+                class="button ghost"
+                type="button"
+                aria-pressed="false"
+              >
+                Show
+              </button>
+            </div>
+            <p id="key-error" class="error" role="alert" hidden></p>
+            <p id="key-help" class="help">
+              Create one in
+              <a
+                href="https://www.torn.com/preferences.php#tab=api"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Torn settings</a
+              >. A custom key with only the selections this desk needs is the
+              right kind. Torn keys are usually 16 letters and numbers.
+            </p>
+            <button class="button solid" type="submit">Save key</button>
+          </form>
+
+          <section id="key-saved" class="card" hidden>
+            <p class="field-label">Key on this browser</p>
+            <p id="key-mask" class="key-mask"></p>
+            <p id="saved-note" class="help" hidden>
+              Torn keys are usually 16 letters and numbers. This one was saved
+              anyway.
+            </p>
+            <p class="help">
+              Nothing is fetched from Torn yet. The key is kept in local
+              storage on this browser.
+            </p>
+            <div class="actions">
+              <button
+                id="reveal-key"
+                class="button ghost"
+                type="button"
+                aria-pressed="false"
+              >
+                Show key
+              </button>
+              <button id="remove-key" class="button danger" type="button">
+                Remove key
+              </button>
+            </div>
+          </section>
+        </section>
+
+        <section class="desk" aria-labelledby="desk-title">
+          <div class="desk-head">
+            <h2 id="desk-title">The desk</h2>
+            <p>Empty until the API is connected. The colors are Torn’s bars.</p>
+          </div>
+          <ul class="stats">
+            <li class="stat" data-tone="life">
+              <span class="stat-label">Life</span>
+              <span class="stat-value">—</span>
+              <span class="bar" aria-hidden="true"
+                ><span class="bar-fill"></span
+              ></span>
+            </li>
+            <li class="stat" data-tone="energy">
+              <span class="stat-label">Energy</span>
+              <span class="stat-value">—</span>
+              <span class="bar" aria-hidden="true"
+                ><span class="bar-fill"></span
+              ></span>
+            </li>
+            <li class="stat" data-tone="nerve">
+              <span class="stat-label">Nerve</span>
+              <span class="stat-value">—</span>
+              <span class="bar" aria-hidden="true"
+                ><span class="bar-fill"></span
+              ></span>
+            </li>
+            <li class="stat" data-tone="happy">
+              <span class="stat-label">Happy</span>
+              <span class="stat-value">—</span>
+              <span class="bar" aria-hidden="true"
+                ><span class="bar-fill"></span
+              ></span>
+            </li>
+          </ul>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
